@@ -14,7 +14,7 @@ class SettingsScreen extends StatefulWidget {
 class _SettingsScreenState extends State<SettingsScreen> {
   final UserService _userService = UserService();
 
-  // --- Reuse your existing dialogs ---
+
   Future<void> _showChangePasswordDialog() async {
     final currentCtrl = TextEditingController();
     final newCtrl = TextEditingController();
@@ -97,7 +97,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
     if (confirmed == true) {
       try {
         await _userService.deleteAccountByType(
-          email: _userService.currentUser?.email, // or prefs email
+          email: _userService.currentUser?.email, 
           password: passwordCtrl.text.trim(),
         );
         if (!mounted) return;

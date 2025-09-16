@@ -15,9 +15,7 @@ class UserService {
   User? get currentUser => firebaseAuth.currentUser;
   Stream<User?> get authStateChanges => firebaseAuth.authStateChanges();
 
-  // -----------------------
-  // Helpers for LoginType
-  // -----------------------
+
   String _loginTypeToString(LoginType t) =>
       t == LoginType.firebase ? 'firebase' : 'mongodb';
 
@@ -72,7 +70,7 @@ class UserService {
     }
   }
 
-  /// Register (MongoDB)
+  // Register (MongoDB)
   Future<Map<String, dynamic>> registerUser({
     required String firstName,
     required String lastName,
@@ -113,7 +111,7 @@ class UserService {
     }
   }
 
-  /// Update user (existing)
+  // Update user (existing)
   Future<Map<String, dynamic>> updateUser(Map<String, dynamic> userData) async {
     final response = await put(
       Uri.parse('$host/api/users/${userData['id']}'),
@@ -145,7 +143,7 @@ class UserService {
     }
   }
 
-  /// Update username (MongoDB-specific)
+  //Update username (MongoDB-specific)
   Future<Map<String, dynamic>> updateUsernameMongo(
       {required String id, required String username}) async {
     final response = await put(
@@ -167,7 +165,7 @@ class UserService {
     }
   }
 
-  /// Change password (MongoDB-specific)
+  // Change password (MongoDB-specific)
     Future<void> changePasswordMongo({
   required String id,
   required String currentPassword,
@@ -213,7 +211,7 @@ class UserService {
 }
 
 
-  /// Delete user (MongoDB-specific)
+  /// Delete user (MongoDB)
   Future<void> deleteUserMongo({required String id}) async {
     final response = await delete(Uri.parse('$host/api/users/$id'));
 

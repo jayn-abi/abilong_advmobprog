@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../services/user_service.dart';
-import 'package:firebase_auth/firebase_auth.dart'; // Import Firebase Auth
+import 'package:firebase_auth/firebase_auth.dart'; 
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -20,7 +20,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
   bool _isLoadingMongoDB = false;
   bool _isLoadingFirebase = false;
-// Combined loading state
+
 
 
   @override
@@ -40,7 +40,7 @@ class _LoginScreenState extends State<LoginScreen> {
           _passwordController.text.trim(),
         );
 
-        // MongoDB backend returns a token, which your service saves.
+        
         if (response['token'] != null) {
           if (!mounted) return;
           _showSnackBar('Login successful! Redirecting...', isError: false);
@@ -72,8 +72,7 @@ class _LoginScreenState extends State<LoginScreen> {
         _showSnackBar('Firebase login successful! Redirecting...', isError: false);
 
         Future.delayed(const Duration(seconds: 1), () {
-          // Firebase auth state changes will handle the navigation, but this
-          // ensures a clean visual transition.
+      
           Navigator.pushReplacementNamed(context, '/splash');
         });
       } on FirebaseAuthException catch (e) {
@@ -223,9 +222,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     children: [
                       GestureDetector(
                         onTap: () {
-                          // The `forgot password` feature is not implemented,
-                          // but this navigates to the signup screen. You may
-                          // want to change this later.
+
                           Navigator.pushReplacementNamed(context, '/resetPassword');
                         },
                         child: const Text(

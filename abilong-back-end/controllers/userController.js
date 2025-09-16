@@ -34,7 +34,7 @@ const updateUser = async (req, res) => {
     const user = await User.findById(req.params.id);
     if (!user) return res.status(404).json({ message: "User not found" });
 
-    // If password included → assign (will hash via pre-save)
+    // If password included, assign (will hash via pre-save)
     if (req.body.password) {
       user.password = req.body.password;
     }

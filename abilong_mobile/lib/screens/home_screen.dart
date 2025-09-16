@@ -5,7 +5,7 @@ import 'package:provider/provider.dart';
 import '../providers/theme_provider.dart';
 import 'article_screen.dart';
 import '../widgets/custom_text.dart';
-import 'profile_screen.dart'; // ✅ Import ProfileScreen
+import 'profile_screen.dart'; 
 
 class HomeScreen extends StatefulWidget {
   final String username;
@@ -53,7 +53,7 @@ class HomeScreenState extends State<HomeScreen> {
         children: const <Widget>[
           ArticleScreen(),
           Placeholder(),
-          ProfileScreen(), // ✅ Profile tab
+          ProfileScreen(), 
         ],
         onPageChanged: (page) {
           setState(() {

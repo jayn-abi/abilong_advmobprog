@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../models/article_model.dart';
-// import '../services/article_service.dart'; // 👈 uncomment if you have API service
+
 
 class ArticleDetailScreen extends StatefulWidget {
   final Article article;
@@ -37,7 +37,7 @@ class _ArticleDetailScreenState extends State<ArticleDetailScreen> {
     super.dispose();
   }
 
-  /// Loading popup
+  // Loading popup
   void _showLoadingDialog(BuildContext context) {
     showDialog(
       context: context,
@@ -79,8 +79,7 @@ class _ArticleDetailScreenState extends State<ArticleDetailScreen> {
       
       await Future.delayed(const Duration(seconds: 2));
 
-      // TODO: Replace with your API call
-      // await ArticleService().updateArticle(updatedArticle);
+
 
       if (mounted) {
         Navigator.of(context).pop(); 

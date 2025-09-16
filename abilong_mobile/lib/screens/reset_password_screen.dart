@@ -35,7 +35,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
         ),
       );
      Navigator.pushReplacementNamed(context, '/login');
- // go back to login
+
     } catch (e) {
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(

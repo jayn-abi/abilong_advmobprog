@@ -14,7 +14,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
   final _formKey = GlobalKey<FormState>();
   final UserService _userService = UserService();
 
-  // Controllers
+  
   final TextEditingController _firstNameController = TextEditingController();
   final TextEditingController _lastNameController = TextEditingController();
   final TextEditingController _ageController = TextEditingController();
@@ -60,7 +60,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
           address: _addressController.text,
         );
 
-        // Your service saves the token from the MongoDB response
+       
         if (response['token'] != null) {
           if (!mounted) return;
           _showSnackBar("Registration successful!", isError: false);
@@ -78,7 +78,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
     }
   }
 
-  /// Handles registration with the Firebase backend.
+  //Handles registration with the Firebase backend.
   Future<void> _handleFirebaseSignUp() async {
     if (_formKey.currentState!.validate()) {
       setState(() => _isLoadingFirebase = true);
@@ -106,7 +106,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
     }
   }
 
-  /// Reusable function to show a snackbar.
+  // Reusable function to show a snackbar.
   void _showSnackBar(String message, {required bool isError}) {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
